@@ -4,7 +4,7 @@ pipeline {
 
     tools {
         // Ensure this matches the name you gave your NodeJS installation in Global Tool Configuration
-        nodejs 'Node18'
+        nodejs 'Node21'
     }
 
     stages {
