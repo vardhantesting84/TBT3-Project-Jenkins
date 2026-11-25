@@ -23,7 +23,11 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter:  [
+  ['list'], // For console output during the run
+  ['junit', { outputFile: 'test-results/junit-report.xml' }], // JUnit XML report for Jenkins
+  ['html', { outputFolder: 'playwright-report', open: 'never' }], // HTML report for detailed viewing
+ ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
